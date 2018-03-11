@@ -35,11 +35,7 @@ function hasBinary (obj) {
     return false;
   }
 
-  if ((typeof global.Buffer === 'function' && global.Buffer.isBuffer && global.Buffer.isBuffer(obj)) ||
-     (typeof global.ArrayBuffer === 'function' && obj instanceof ArrayBuffer) ||
-     (typeof global.Blob === 'function' && obj instanceof Blob) ||
-     (typeof global.File === 'function' && obj instanceof File)
-    ) {
+  if (obj instanceof ArrayBuffer || obj instanceof Blob || obj instanceof File) {
     return true;
   }
 
